@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <select [(ngModel)]="customer">
+            <option *ngFor="let custom of customers" [ngValue]="custom">{{ custom.name }}</option>
+        </select>
+        <button class="btn btn-info" (click)="ChangeColor()">Zmień kolor</button>
+        <button class="btn btn-info" (click)="DeleteCustomer()">Usuń klienta</button>
+    </div>
+    <div>
+    <app-customer-details [customer]="customer" (shift)="onShift($event)"></app-customer-details>
+    </div>
+</div>

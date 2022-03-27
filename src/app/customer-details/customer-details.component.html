@@ -1,0 +1,44 @@
+
+<div class="panel panel-default" *ngIf="customer">
+    <div class="panel-heading">
+        <h1 [style.color]="nameColor" [class.isActive]="isActive">
+            <button class="btn btn-primary" (click)="left()" >&lt;</button>
+            {{customer.name.toUpperCase()}}
+            <ng-container [ngSwitch]="customer.type">
+                <ng-container *ngSwitchCase="CustomerType.Standard">*</ng-container>
+                <ng-container *ngSwitchCase="CustomerType.Premium">**</ng-container>
+                <ng-container *ngSwitchCase="CustomerType.VIP">***</ng-container>
+                <ng-container *ngSwitchDefault>nieznany typ</ng-container>
+            </ng-container>
+            <button class="btn btn-primary" (click)="right()">&gt;</button>
+        </h1>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-8">
+                <p>{{ customer.description }}</p>
+                <p appHighlight>Wiek: {{ customer.age }}</p>
+                <p>Adres: {{ customer.address.street }}, {{ customer.address.houseNumber }},
+                    {{ customer.address.city }} </p>
+                <ul>
+                    <li *ngFor="let category of customer.categories ">{{ category }}</li>
+                </ul>
+                <button class="btn btn-primary" (click)="ChangeIsActive()" type="button">Przełącz podkreślenie</button>
+                <button class="btn btn-primary" (click)="ChangeColor()" type="button">Przełącz kolor</button>
+            </div>
+            <div class="col-sm-4">
+                <ng-container *ngIf="showPhoto; then photo else noPhoto"></ng-container>
+                <ng-template #photo>
+                    <img [src]="customer.photoUrl"/>
+                </ng-template>
+                <ng-template #noPhoto>
+                    <p>Zdjęcie ukryte</p>
+                </ng-template>
+                <div class="checkbox">
+                    <label><input class="btn-primary" type="checkbox" [(ngModel)]="showPhoto"> Pokaż zdjęcie</label>
+                </div>
+                <p>{{ counter }}</p>
+            </div>
+        </div>
+    </div>
+</div>
