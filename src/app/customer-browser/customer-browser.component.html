@@ -3,8 +3,8 @@
         <select [(ngModel)]="customer">
             <option *ngFor="let custom of customers" [ngValue]="custom">{{ custom.name }}</option>
         </select>
-        <button class="btn btn-info" (click)="ChangeColor()">Zmień kolor</button>
-        <button class="btn btn-info" (click)="DeleteCustomer()">Usuń klienta</button>
+        <button class="btn btn-info" (click)="changeColor()">Zmień kolor</button>
+        <button class="btn btn-info" (click)="deleteCustomer()">Usuń klienta</button>
     </div>
     <div>
     <app-customer-details [customer]="customer" (shift)="onShift($event)"></app-customer-details>

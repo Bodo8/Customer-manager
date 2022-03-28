@@ -32,11 +32,6 @@ export class CustomerDetailsComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-        // if(!changes['customer'].isFirstChange())
-        // {
-        // console.log(`change from ${changes['customer'].previousValue.name } to
-        // ${changes['customer'].currentValue.name}`)
-        // }
     }
 
   ngOnInit(): void {
@@ -55,7 +50,7 @@ export class CustomerDetailsComponent implements OnInit, OnDestroy, OnChanges {
 
   ChangeColor(){
     this.nameColor = this.nameColor === "blue" ? "red" : "blue";
-    this.messageService.Sucess('Zmieniono kolor!')
+    this.messageService.success('Zmieniono kolor!')
   }
 
   left(){

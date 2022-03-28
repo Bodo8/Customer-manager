@@ -13,7 +13,7 @@ import {ToastrModule} from "ngx-toastr";
 import {MessageService} from "./message.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
-import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { CustomerCreateComponent } from './customer-create/customer-create.component';
 
 const config: Config = {
   customerLimit: 3,
@@ -25,7 +25,7 @@ const config: Config = {
     HighlightDirective,
     CustomerBrowserComponent,
     CustomerDetailsComponent,
-    AddCustomerComponent
+    CustomerCreateComponent
   ],
   imports: [
     BrowserModule,

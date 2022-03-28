@@ -10,6 +10,7 @@ import {Customer, CustomerType} from './Model/Customer'
 })
 export class AppComponent {
 
+  isActive: boolean = true;
   constructor() {}
 
 

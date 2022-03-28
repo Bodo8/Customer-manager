@@ -15,7 +15,7 @@ export interface Address {
     city: string;
 }
 export enum CustomerType {
-    Standard,
-    Premium,
+    Standard ,
+    Premium ,
     VIP
 }

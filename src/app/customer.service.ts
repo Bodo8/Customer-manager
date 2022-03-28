@@ -13,16 +13,16 @@ export class CustomerService {
               private httpClient: HttpClient)
   { }
 
-  GetCustomers() {
+  getCustomers() {
     return this.httpClient.get<Customer[]>(`${this.config.apiUrl}/customers`)
         .pipe(map(customers => customers.slice(0, this.config.customerLimit)));
   }
 
-  CreateCustomer(customer: Customer) {
+  createCustomer(customer: Customer) {
     return this.httpClient.post(`${this.config.apiUrl}/customers`, customer)
   }
 
-  DeleteCustomer(customer: Customer) {
+  deleteCustomer(customer: Customer) {
     return this.httpClient.delete(`${this.config.apiUrl}/customers/${customer.id}`)
   }
 }

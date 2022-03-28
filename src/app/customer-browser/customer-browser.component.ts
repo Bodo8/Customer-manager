@@ -17,12 +17,11 @@ export class CustomerBrowserComponent implements OnInit {
   customers: Customer[];
   customer: Customer;
 
-
   constructor(private customerService: CustomerService,
               private messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.Refresh();
+    this.refresh();
   }
 
   onShift(direction: string){
@@ -33,24 +32,24 @@ export class CustomerBrowserComponent implements OnInit {
       this.customer = this.customers[index + 1]
     }
   }
-  DeleteCustomer(){
-    this.customerService.DeleteCustomer(this.customer).subscribe(
+  deleteCustomer(){
+    this.customerService.deleteCustomer(this.customer).subscribe(
         () => {
-          this.messageService.Sucess("Usunięto klienta")
-          this.Refresh()},
+          this.refresh(),
+              this.messageService.success("Klient został usunięty")
+        },
         error => {
-          console.log(error);
-          this.messageService.Error("Błąd w połączeniu z serverem");
+          this.messageService.error("Błąd w połączeniu z serverem");
         }
     );
   }
 
-  ChangeColor(){
+  changeColor(){
     this.detailsComponent.ChangeColor()
   }
 
-  Refresh(){
-    this.customerService.GetCustomers().subscribe(response => {
+  private refresh(){
+    this.customerService.getCustomers().subscribe(response => {
       this.customers = response;
       this.customer = this.customers[0]
     })
