@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Dodaj klienta
+    </div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label for="name">Nazwa klienta</label>
+                <input required type="text" minlength="4" maxlength="20" class="form-control" id="name"
+                       [(ngModel)]="name" name="name" #nameInput #nameModel="ngModel"/>
+                <div class="alert alert-danger" *ngIf="nameModel.invalid && ( nameModel.touched || nameModel.dirty)">
+                    <div *ngIf="nameModel.errors.required">
+                        Pole nazwa jest wymagane
+                    </div>
+                    <div *ngIf="nameModel.errors.minlength">
+                        Nazwa musi mieć conajmniej 5 znaków
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="age">Wiek</label>
+                <input required type="number" class="form-control" id="age"
+                       [(ngModel)]="age" name="age" />
+
+            </div>
+            <div class="form-group">
+                <label for="typeCustom">Typ</label>
+                <select id="typeCustom" class="form-control" [(ngModel)]="typeCust" name="typeCustom">
+                    <option [value]="eCustomerType.Standard">Standard</option>>
+                    <option [value]="eCustomerType.Premium">Premium</option>>
+                    <option [value]="eCustomerType.VIP">VIP</option>>
+                </select>
+              <!--  <div class="alert alert-danger" >
+                    Typ klienta jest wymagany
+                </div> -->
+            </div>
+            <!-- <button type="button" class="btn btn-default" [disabled]="!customerForm.dirty" (click)="customerForm.resetForm()">Resetuj</button>
+            <button type="submit" class="btn btn-success" [disabled]="!customerForm.form.valid" >Dodaj</button> -->
+
+
+            <button type="button" class="btn btn-success" (click)="add()">Dodaj</button>
+        </form>
+    </div>
+</div>
+
