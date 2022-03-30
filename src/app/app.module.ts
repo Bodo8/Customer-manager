@@ -12,8 +12,9 @@ import {CONFIG, Config} from "./Model/Config";
 import {ToastrModule} from "ngx-toastr";
 import {MessageService} from "./message.service";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { CustomerCreateComponent } from './customer-create/customer-create.component';
+import {ErrorHandlingInterceptor} from "./error-handling.interceptor";
 
 const config: Config = {
   customerLimit: 3,
@@ -39,7 +40,9 @@ const config: Config = {
   providers: [
       CustomerService,
       {provide: CONFIG, useValue: config},
+      {provide: HTTP_INTERCEPTORS, useClass: ErrorHandlingInterceptor, multi: true },
       MessageService,
+
   ],
   bootstrap: [AppComponent]
 })

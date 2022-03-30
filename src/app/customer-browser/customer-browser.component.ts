@@ -35,13 +35,9 @@ export class CustomerBrowserComponent implements OnInit {
   deleteCustomer(){
     this.customerService.deleteCustomer(this.customer).subscribe(
         () => {
-          this.refresh(),
-              this.messageService.success("Klient został usunięty")
-        },
-        error => {
-          this.messageService.error("Błąd w połączeniu z serverem");
-        }
-    );
+          this.refresh();
+          this.messageService.success("Klient został usunięty");
+        });
   }
 
   changeColor(){
