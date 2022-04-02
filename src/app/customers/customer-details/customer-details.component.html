@@ -21,7 +21,7 @@
                 <p>Adres: {{ customer.address.street }}, {{ customer.address.houseNumber }},
                     {{ customer.address.city }} </p>
                 <ul>
-                    <li *ngFor="let category of customer.categories ">{{ category }}</li>
+                    <li *ngFor="let category of customer.categories ">{{ category | capitalize }}</li>
                 </ul>
                 <button class="btn btn-primary" (click)="ChangeIsActive()" type="button">Przełącz podkreślenie</button>
                 <button class="btn btn-primary" (click)="ChangeColor()" type="button">Przełącz kolor</button>

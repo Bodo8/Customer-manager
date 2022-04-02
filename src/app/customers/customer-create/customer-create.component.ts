@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {CustomerType} from "../Model/Customer";
+import {CustomerType} from "../Model/customer";
 import {CustomerService} from "../customer.service";
-import {MessageService} from "../message.service";
+import {MessageService} from "../../core/message.service";
 
 @Component({
-  selector: 'app-customer-create',
+  selector: 'cus-customer-create',
   templateUrl: './customer-create.component.html',
   styles: [
   ]

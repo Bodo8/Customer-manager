@@ -1,6 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
-import {Customer, CustomerType} from "./Model/Customer";
-import {CONFIG, Config} from "./Model/Config";
+import {Customer, CustomerType} from "./Model/customer";
+import {CONFIG, Config} from "../core/config";
 import {HttpClient} from "@angular/common/http";
 import {map} from 'rxjs/operators';
 

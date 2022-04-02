@@ -1,12 +1,17 @@
 <div class="panel panel-default">
     <div class="panel-body">
-        <select [(ngModel)]="customer">
+        <select [(ngModel)]="customer" *ngIf="customers$ | async as customers else loading">
+            <option [ngValue]="null">Wybierz klienta</option>
             <option *ngFor="let custom of customers" [ngValue]="custom">{{ custom.name }}</option>
         </select>
         <button class="btn btn-info" (click)="changeColor()">Zmień kolor</button>
         <button class="btn btn-info" (click)="deleteCustomer()">Usuń klienta</button>
     </div>
     <div>
-    <app-customer-details [customer]="customer" (shift)="onShift($event)"></app-customer-details>
+    <cus-customer-details [customer]="customer" (shift)="onShift($event)"></cus-customer-details>
     </div>
 </div>
+
+<ng-template #loading>
+    <p>Ładowanie...</p>
+</ng-template>

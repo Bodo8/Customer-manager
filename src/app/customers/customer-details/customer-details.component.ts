@@ -8,11 +8,11 @@ import {
   Output,
   SimpleChanges
 } from '@angular/core';
-import {Customer, CustomerType} from "../Model/Customer";
-import {MessageService} from "../message.service";
+import {Customer, CustomerType} from "../Model/customer";
+import {MessageService} from "../../core/message.service";
 
 @Component({
-  selector: 'app-customer-details',
+  selector: 'cus-customer-details',
   templateUrl: './customer-details.component.html',
   styles: []
 })
