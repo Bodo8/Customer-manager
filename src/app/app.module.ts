@@ -10,15 +10,11 @@ import {ContractsModule} from "./contracts/contracts.module";
 import {CustomersModule} from "./customers/customers.module";
 import {CoreModuleApp} from "./core/core-module-app.module";
 import {HttpClientModule} from "@angular/common/http";
-import {CustomerBrowserComponent} from "./customers/customer-browser/customer-browser.component";
-import {CustomerCreateComponent} from "./customers/customer-create/customer-create.component";
-import {ContractListComponent} from "./contracts/contract-list/contract-list.component";
+import {NotFoundComponent} from "./core/not-found/not-found.component";
 
 const routes: Routes = [
-  {path: 'customers', component: CustomerBrowserComponent},
-  {path: 'customers/add', component: CustomerCreateComponent},
-  {path: 'contracts', component: ContractListComponent},
-  {path: '', redirectTo: 'customers', pathMatch: 'full'}
+  {path: '', redirectTo: 'customers', pathMatch: 'full'},
+  { path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({

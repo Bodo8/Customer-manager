@@ -1,14 +1,15 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-light"></nav>
+<nav class="nav navbar-expand-lg navbar-light bg-light" >
     <div class="container-fluid">
-        <ul class="nav navbar-nav">
-            <li routerLinkActive="active">
-                <a routerLink="customers">Klienci</a>
+        <ul class="navbar-nav">
+            <li routerLinkActive="active"  class="navbar-nav me-lg-0 mb-2 mb-lg-0 h1">
+                <button class="btn btn-primary btn-lg me-2" routerLink="customers" >Klienci</button>
             </li>
-            <li routerLinkActive="active">
-                <a routerLink="customers/add">Dodaj klienta</a>
+            <li routerLinkActive="active" class="navbar-nav me-lg-1 mb-2 mb-lg-0 h1">
+                <button routerLink="customers/add" class="btn btn-primary btn-lg me-2">Dodaj klienta</button>
             </li>
-            <li routerLinkActive="active">
-                <a routerLink="contracts">Umowy</a>
+            <li routerLinkActive="active" class="navbar-nav me-lg-2 mb-2 mb-lg-0 h1">
+                <button routerLink="contracts" class="btn btn-primary btn-lg me-2">Umowy</button>
             </li>
         </ul>
         <form class="navbar-form navbar-right">

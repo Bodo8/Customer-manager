@@ -5,6 +5,7 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {Config, CONFIG} from "./config";
 import { NavbarComponent } from './navbar/navbar.component';
 import {RouterModule} from "@angular/router";
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const config: Config = {
   customerLimit: 3,
@@ -18,7 +19,7 @@ const config: Config = {
     {provide: HTTP_INTERCEPTORS, useClass: ErrorHandlingInterceptor, multi: true },
       MessageService
   ],
-  declarations: [ NavbarComponent],
+  declarations: [ NavbarComponent, NotFoundComponent],
 exports: [ NavbarComponent]
 })
 
