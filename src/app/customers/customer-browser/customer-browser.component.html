@@ -2,13 +2,14 @@
     <div class="panel-body">
         <!-- <select [(ngModel)]="customer" *ngIf="customers$ | async as customers else loading"
         class="bg-light mb-2"> -->
-
-        <select [(ngModel)]="customer" class="justify-content-md-start me-md-4">
+        <div class="container-fluid">
+        <select [(ngModel)]="customer" class="form-select-sm justify-content-md-start me-md-4">
             <option [ngValue]="null">Wybierz klienta</option>
             <option *ngFor="let custom of customers" [ngValue]="custom">{{ custom.name }}</option>
         </select>
-        <button class="btn btn-primary me-md-2" (click)="changeColor()">Zmień kolor</button>
-        <button class="btn btn-primary me-md-2" (click)="deleteCustomer()">Usuń klienta</button>
+        <button class="btn btn-primary justify-content-between me-md-2" (click)="changeColor()">Zmień kolor</button>
+        <button class="btn btn-primary justify-content-between me-md-2" (click)="deleteCustomer()">Usuń klienta</button>
+        </div>
     </div>
     <div>
     <cus-customer-details [customer]="customer" (shift)="onShift($event)"></cus-customer-details>
