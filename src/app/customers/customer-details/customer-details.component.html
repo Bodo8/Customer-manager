@@ -1,6 +1,6 @@
 
 <div class="panel panel-default" *ngIf="customer">
-    <div class="panel-heading">
+    <div class="border border-light">
         <h1 [style.color]="nameColor" [class.isActive]="isActive">
             <button class="btn btn-primary" (click)="left()" >&lt;</button>
             {{customer.name.toUpperCase()}}
@@ -13,7 +13,7 @@
             <button class="btn btn-primary" (click)="right()">&gt;</button>
         </h1>
     </div>
-    <div class="panel-body">
+    <div class="border border-light">
         <div class="row">
             <div class="col-sm-8">
                 <p>{{ customer.description }}</p>

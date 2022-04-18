@@ -4,10 +4,15 @@ import {ContractService} from "./contract.service";
 import {SharedModule} from "../shared/shared.module";
 import {RouterModule} from "@angular/router";
 import { ContractDetailsComponent } from './contract-details/contract-details.component';
+import {ContractResolver} from "./contract-resolver.service";
 
 const routes = [
-  { path: 'contracts/:id', component: ContractDetailsComponent},
-  { path: 'contracts', component: ContractListComponent}
+  { path: '/:id', component: ContractDetailsComponent,
+    resolve: {
+      contract: ContractResolver
+    }
+  },
+  { path: '', component: ContractListComponent}
 ];
 
 @NgModule({
@@ -15,7 +20,10 @@ const routes = [
     ContractListComponent,
     ContractDetailsComponent
   ],
-  providers: [ContractService],
+  providers: [
+      ContractService,
+      ContractResolver
+  ],
   exports: [
     ContractListComponent
   ],

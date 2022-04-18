@@ -5,10 +5,13 @@ import {CustomerBrowserComponent} from "./customer-browser/customer-browser.comp
 import {CustomerService} from "./customer.service";
 import {SharedModule} from "../shared/shared.module";
 import {RouterModule} from "@angular/router";
+import {AuthGuard} from "../core/auth-guard.service";
+import {CustomerAddDeactivateGuard} from "./customer-add-deactivate-guard.service";
 
 const routes = [
     {path: 'customers', component: CustomerBrowserComponent},
-    {path: 'customers/add', component: CustomerCreateComponent},
+    {path: 'customers/add', component: CustomerCreateComponent, canActivate: [ AuthGuard],
+        canDeactivate: [CustomerAddDeactivateGuard]},
 ];
 
 @NgModule({
@@ -18,6 +21,7 @@ const routes = [
       CustomerBrowserComponent
   ],
   providers: [
+      CustomerAddDeactivateGuard,
       CustomerService
   ],
   imports: [

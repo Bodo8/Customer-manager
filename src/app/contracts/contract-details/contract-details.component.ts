@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {ContractService} from "../contract.service";
 import {Contract} from "../model";
 
 @Component({
@@ -13,16 +12,13 @@ export class ContractDetailsComponent implements OnInit {
 
   contract: Contract;
 
-  constructor(private  activatedRoute: ActivatedRoute,
-              private contractService: ContractService) { }
+  constructor(private  activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe( params =>{
-      const id = parseInt(params['id']);
-      this.contractService.getContract(id).subscribe(contract => {
-        this.contract = contract;
-      }) ;
-    })
+    this.activatedRoute.data.subscribe(data => {
+      this.contract = data['contract'];
+    });
+
   }
 
 }

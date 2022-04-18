@@ -6,13 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {ContractsModule} from "./contracts/contracts.module";
 import {CustomersModule} from "./customers/customers.module";
 import {CoreModuleApp} from "./core/core-module-app.module";
 import {HttpClientModule} from "@angular/common/http";
 import {NotFoundComponent} from "./core/not-found/not-found.component";
 
 const routes: Routes = [
+  {path: 'contracts', loadChildren: () => import('./contracts/contracts.module')
+        .then(mod => mod.ContractsModule)},
   {path: '', redirectTo: 'customers', pathMatch: 'full'},
   { path: '**', component: NotFoundComponent}
 ];
@@ -29,7 +30,6 @@ const routes: Routes = [
       BrowserAnimationsModule,
       RouterModule.forRoot(routes),
       HttpClientModule,
-      ContractsModule,
       CustomersModule
   ],
   bootstrap: [AppComponent]

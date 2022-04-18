@@ -6,6 +6,9 @@ import {Config, CONFIG} from "./config";
 import { NavbarComponent } from './navbar/navbar.component';
 import {RouterModule} from "@angular/router";
 import { NotFoundComponent } from './not-found/not-found.component';
+import {AuthGuard} from "./auth-guard.service";
+import {AuthService} from "./auth.service";
+import {CommonModule} from "@angular/common";
 
 const config: Config = {
   customerLimit: 3,
@@ -13,8 +16,10 @@ const config: Config = {
 };
 
 @NgModule({
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   providers: [
+      AuthGuard,
+      AuthService,
     {provide: CONFIG, useValue: config},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorHandlingInterceptor, multi: true },
       MessageService
