@@ -54,11 +54,11 @@ export class CustomerDetailsComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   left(){
-   this.shift.emit('left')
+   this.shift.emit('prev')
   }
 
   right(){
-   this.shift.emit('right')
+   this.shift.emit('next')
   }
 
 

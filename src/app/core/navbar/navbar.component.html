@@ -1,21 +1,26 @@
 <nav class="navbar navbar-light"></nav>
-<nav class="nav navbar-expand-lg navbar-light bg-light" >
+<nav class="nav navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <ul class="navbar-nav">
-            <li routerLinkActive="active"  class="navbar-nav me-lg-0 mb-2 mb-lg-0 h1">
-                <button class="btn btn-primary btn-lg me-2" routerLink="customers" >Klienci</button>
-            </li>
-            <li routerLinkActive="active" class="navbar-nav me-lg-1 mb-2 mb-lg-0 h1">
-                <button routerLink="customers/add" class="btn btn-primary btn-lg me-2">Dodaj klienta</button>
-            </li>
-            <li routerLinkActive="active" class="navbar-nav me-lg-2 mb-2 mb-lg-0 h1">
-                <button routerLink="contracts" class="btn btn-primary btn-lg me-2">Umowy</button>
-            </li>
-        </ul>
-        <form class="navbar-form navbar-right">
-            <button type="button" class="btn btn-default" (click)="authService.login()" *ngIf="!authService.isLogged">Zaloguj</button>
-            <button type="button" class="btn btn-default" (click)="authService.logOut()" *ngIf="authService.isLogged">Wyloguj</button>
-
-        </form>
+        <div class="navbar-nav d-md-flex">
+            <div routerLinkActive="active" class="navbar-nav justify-content-md-start">
+                <button class="btn btn-primary me-md-2" routerLink="customers">Klienci</button>
+            </div>
+            <div routerLinkActive="active" class="navbar-nav justify-content-center">
+                <button routerLink="customers/add" class="btn btn-primary me-md-2">Dodaj klienta</button>
+            </div>
+            <div routerLinkActive="active" class="navbar-nav justify-content-between">
+                <button routerLink="contracts" class="btn btn-primary me-md-2">Umowy</button>
+            </div>
+            <div class="container-fluid">
+                <div routerLinkActive="active" class="navbar-nav d-md-flex justify-content-md-end">
+                    <button type="button" class="btn btn-outline-primary me-md-2" (click)="authService.login()"
+                            *ngIf="!authService.isLogged">Zaloguj
+                    </button>
+                    <button type="button" class="btn btn-outline-primary" (click)="authService.logOut()"
+                            *ngIf="authService.isLogged">Wyloguj
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 </nav>
