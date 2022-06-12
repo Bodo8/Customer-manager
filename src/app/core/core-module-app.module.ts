@@ -9,6 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import {AuthGuard} from "./auth-guard.service";
 import {AuthService} from "./auth.service";
 import {CommonModule} from "@angular/common";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 const config: Config = {
   customerLimit: 3,
@@ -16,7 +17,7 @@ const config: Config = {
 };
 
 @NgModule({
-  imports: [RouterModule, CommonModule],
+    imports: [RouterModule, CommonModule, MatToolbarModule],
   providers: [
       AuthGuard,
       AuthService,
